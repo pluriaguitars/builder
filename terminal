@@ -1,0 +1,2 @@
+mkdir css js
+touch index.html css/styles.css js/main.js 

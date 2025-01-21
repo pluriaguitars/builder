@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #1a1a1a;
-    color: #fff;
+    color: #ffffff;
 }
 
 .container {
@@ -14,7 +14,8 @@ body {
     width: 300px;
     background-color: #2a2a2a;
     padding: 20px;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .right-column {
@@ -25,8 +26,8 @@ body {
 
 .logo {
     max-width: 25%;
-    display: block;
     margin: 0 auto 8px;
+    display: block;
 }
 
 h1 {
@@ -41,7 +42,7 @@ h2 {
 }
 
 .accordion-item {
-    background-color: #333;
+    background-color: #3a3a3a;
     margin-bottom: 15px;
     border-radius: 4px;
 }
@@ -54,21 +55,20 @@ h2 {
     align-items: center;
 }
 
-.arrow {
-    font-size: 12px;
-    transition: transform 0.3s;
-}
-
 .accordion-content {
-    display: none;
     padding: 15px;
+    display: none;
 }
 
-.accordion-item.active .accordion-content {
+.accordion-content.active {
     display: block;
 }
 
-.accordion-item.active .arrow {
+.arrow {
+    transition: transform 0.3s;
+}
+
+.arrow.active {
     transform: rotate(180deg);
 }
 
@@ -83,25 +83,28 @@ label {
     top: 20px;
     right: 20px;
     font-size: 14px;
-    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 4px;
-    z-index: 9999;
-    white-space: nowrap;
 }
 
 .product-box {
-    position: relative;
-    width: 100%;
     height: 100vh;
+    position: relative;
     overflow: hidden;
 }
 
-#productImages img {
+.product-images {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-images img {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -109,70 +112,61 @@ label {
 
 .menu-toggle {
     display: none;
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    cursor: pointer;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 10000;
-    }
-
-    #menuButton {
-        width: 48px;
-        height: 48px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-    }
-
-    #menuButton span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: white;
-        transition: 0.3s;
-    }
-
-    .menu-open #menuButton span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-    }
-
-    .menu-open #menuButton span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-open #menuButton span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
     }
 
     .left-column {
         position: fixed;
         top: 0;
-        left: 0;
+        left: -100%;
         width: 100%;
         height: 100vh;
-        transform: translateY(-100%);
-        transition: transform 0.3s;
-        z-index: 9999;
+        z-index: 999;
+        transition: 0.3s;
+        padding: 0;
         padding-top: 65px;
-        overflow-y: auto;
     }
 
-    .menu-open .left-column {
-        transform: translateY(0);
+    .left-column.active {
+        left: 0;
     }
 
     .logo {
         margin-bottom: 12px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 }
 

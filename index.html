@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Builder</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="menu-toggle">
-        <button id="menuButton" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-
+    
     <div class="container">
-        <div class="left-column" id="leftColumn">
-            <img src="images/logo-pluria.png" alt="Pluria Gold Logo" class="logo">
+        <div class="left-column">
+            <img src="https://i.ibb.co/z84hqSg/Logo-Pluria-Gold.png" alt="Pluria Logo" class="logo">
             <h1>Custom Builder</h1>
-
+            
             <div class="accordion">
                 <div class="accordion-item">
                     <h2>Body <span class="arrow">▼</span></h2>
                     <div class="accordion-content">
                         <label>
-                            <input type="radio" name="body" value="100" checked>
-                            Paulownia (R$100)
+                            <input type="radio" name="body" value="100" checked> Paulownia (R$100)
                         </label>
                     </div>
                 </div>
@@ -35,16 +32,13 @@
                     <h2>Top <span class="arrow">▼</span></h2>
                     <div class="accordion-content">
                         <label>
-                            <input type="radio" name="top" value="0" checked>
-                            None (R$0)
+                            <input type="radio" name="top" value="0" checked> None (R$0)
                         </label>
                         <label>
-                            <input type="radio" name="top" value="50">
-                            Blue (R$50)
+                            <input type="radio" name="top" value="50"> Blue (R$50)
                         </label>
                         <label>
-                            <input type="radio" name="top" value="50">
-                            Red (R$50)
+                            <input type="radio" name="top" value="50"> Red (R$50)
                         </label>
                     </div>
                 </div>
@@ -53,12 +47,10 @@
                     <h2>Pickup <span class="arrow">▼</span></h2>
                     <div class="accordion-content">
                         <label>
-                            <input type="radio" name="pickup" value="102">
-                            White (R$102)
+                            <input type="radio" name="pickup" value="102"> White (R$102)
                         </label>
                         <label>
-                            <input type="radio" name="pickup" value="102" checked>
-                            Black (R$102)
+                            <input type="radio" name="pickup" value="102" checked> Black (R$102)
                         </label>
                     </div>
                 </div>
@@ -66,13 +58,15 @@
         </div>
 
         <div class="right-column">
-            <div class="total-price" id="totalPrice">Total: R$202</div>
+            <div class="total-price">Total: R$202</div>
             <div class="product-box">
-                <div id="productImages"></div>
+                <div class="product-images">
+                    <!-- Images will be inserted here via JavaScript -->
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html> 
